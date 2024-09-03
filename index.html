@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+        body {
+            background: url('https://raw.githubusercontent.com/marekt88/impofai/master/Github%20images/impofai%20multiple%20bg.png') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            font-family: 'Space Grotesk', sans-serif;
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .main-text {
+            font-size: 3em;
+            color: #FFFFFF;
+            font-weight: 700;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+        }
+
+        .subheading {
+            font-size: 2em;
+            color: #00FFFF;
+            margin-top: 10px;
+        }
+
+        .arrow {
+            position: fixed;
+            bottom: 120px;
+            right: 250px;
+            font-size: 1.5em;
+            color: #00FFFF;
+            animation: bounce 2s infinite;
+        }
+
+        .arrow::before {
+            content: '↘️';
+            display: block;
+        }
+
+        .arrow-text {
+            position: fixed;
+            bottom: 120px;
+            right: 300px;
+            font-size: 1.7em;
+            color: #000000;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-30px);
+            }
+            60% {
+                transform: translateY(-15px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="main-text">AI Voice Assistant for booking calls</div>
+        <div class="subheading"><a href="https://impofai.com" style="color: #7757d6; text-decoration: none;">Visit us at impofai.com</a></div>
+    </div>
+    <div class="arrow-text">Call with demo web agent</div>
+    <div class="arrow"></div>
+
+    <!-- The rest of your script remains unchanged -->
+    <script>
+        var vapiInstance = null;
+        const assistant = {
+        "name": "SAAS upgrade",
+        "voice": {
+            "voiceId": "e00d0e4c-a5c8-443f-a8a3-473eb9a62355",
+            "provider": "cartesia"
+        },
+        "model": {
+            "model": "gpt-4o-mini",
+            "messages": [
+                {
+                    "role": "system",
+                    "content": "# You are Alex: Adet IT Solutions' AI Voice Agent for Outbound Sales Calls ## Overview Alex is a knowledgeable and approachable AI voice agent for Adet IT Solutions, a company specializing in IT services and cybersecurity. The goal of the call is to engage prospects, introduce the company's services, and secure a time for a follow-up call for a free risk assessment. ## Persona - Early 30s, experienced IT consultant - Well-versed in IT and cybersecurity with a friendly, professional demeanor - Calm, clear voice with a touch of humor and warmth ## Primary Interaction Mode Audio-based conversations, interpreting and responding dynamically to spoken responses ## Key Instructions ### 1. Active Listening - Always acknowledge and respond to the prospect's engagement. - Example: That makes sense, glad you shared that with me. ### 2. Opener After the prospect says Hi: > Does Adet IT sound familiar to you? ### 3. Conversation Flow 1. **Gauge familiarity with Adet IT:** - If yes: Perfect! May I ask how you know us? - If no: No problem, let me give you a quick overview—we’re a full IT department specializing in cybersecurity, based in New York. 2. **Wake their interest:** - A: The reason I’m calling today is that I noticed you have around 16 employees, is that correct? - Discuss potential vulnerabilities linked to employee numbers, emphasizing email security with a light tone: Since you have 16 employees, that’s 16 potential vulnerabilities. And we all know, people aren’t perfect - B: I’m calling because with the rise of AI, many businesses like yours need to update their security. I saw you have around 16 employees, is that right? - Engage in a similar discussion about vulnerabilities and IT infrastructure. 3. **Offer the free risk assessment:** - We’d love to offer you a free risk assessment through an online meeting to identify any potential vulnerabilities, no strings attached. Think of it as a flu shot for your IT infrastructure. - Schedule the meeting>Can I send you a link where you can schedule a quick 30-minute call with our team? ### 4. Handling Objections - If they show hesitation: I completely understand. Cybersecurity can seem overwhelming, but it’s really just like insurance—it’s invaluable when you need it. - If they ask for an email: I will include my email in the message with a link where you can schedule a call ### 5. Closing - If they agree to scheduling a call: Great! I’ll send a message with a link for our meeting calendar where you can book a call. If you have any questions before the call, feel free to reach out—my email will be in the invite. - If they decline: Thanks for your time today. If you change your mind, feel free to reach out. Have a great day! ### 6. Communication Style - Use clear and friendly language. - Maintain a conversational tone with a hint of humor. - Adjust the pace to match the prospect’s responses. - Regularly check in to ensure the prospect is engaged. ### 7. Personality Traits - Friendly and professional - Light-hearted, with a subtle sense of humor - Brief and engaging responses - Use natural conversational fillers to maintain a human-like flow (e.g., Umm, Well) - Engage during silences: Still with me? ### 8. Complicated questions If the prospect asks a complicated question say that we will explain it further on the online call. ## Ultimate Goal Make potential clients feel comfortable, informed, and interested in Adet IT Solutions’ services, while securing a follow-up appointment for a risk assessment."
+                }
+            ],
+            "provider": "openai",
+            "maxTokens": 250,
+            "temperature": 0.7
+        },
+        "recordingEnabled": true,
+        "firstMessage": "Hi, My name is Alex, and I am calling from Adet IT Solutions, am I calling with John?",
+        "voicemailMessage": "Hi, you've reached Leo at IMPOFAI. Sorry I missed your call. Please leave a message, and I'll get back to you as soon as possible.",
+        "endCallMessage": "Thanks for hearing me out. It was great talking to you. Have a wonderful day!",
+        "transcriber": {
+            "model": "nova-2",
+            "language": "en",
+            "provider": "deepgram"
+        },
+        "endCallFunctionEnabled": true,
+        "dialKeypadFunctionEnabled": false,
+        "hipaaEnabled": false,
+        "metadata": {
+            "user_email": "marekt0808@gmail.com"
+          },
+          "clientMessages": [
+            "transcript",
+            "hang",
+            "function-call",
+            "speech-update",
+            "metadata",
+            "conversation-update"
+        ],
+        "serverMessages": [
+            "end-of-call-report"
+        ],
+        "responseDelaySeconds": 1,
+        "serverUrl": "https://hook.eu2.make.com/2wdng4ak7katifbjyykdcanxgi2q6o11",
+        "endCallPhrases": [
+            "bye for now",
+            "talk soon"
+        ]
+      };
+    
+    
+        const apiKey = "8b5f180a-38eb-4798-af3e-ba8c1320df25"; // Substitute with your Public key from Vapi Dashboard.
+        const buttonConfig = {
+          position: "bottom-right", // "bottom" | "top" | "left" | "right" | "top-right" | "top-left" | "bottom-left" | "bottom-right"
+          offset: "40px", // decide how far the button should be from the edge
+          width: "50px", // min-width of the button
+          height: "50px", // height of the button
+          idle: { // button state when the call is not active.
+            color: `rgb(93, 254, 202)`, 
+            type: "pill", // or "round"
+            title: "Have a quick question?", // only required in case of Pill
+            subtitle: "Talk with our AI assistant", // only required in case of pill
+            icon: `https://unpkg.com/lucide-static@0.321.0/icons/phone.svg`,
+          },
+          loading: { // button state when the call is connecting
+            color: `rgb(93, 124, 202)`,
+            type: "pill", // or "round"
+            title: "Connecting...", // only required in case of Pill
+            subtitle: "Please wait", // only required in case of pill
+            icon: `https://unpkg.com/lucide-static@0.321.0/icons/loader-2.svg`,
+          },
+          active: { // button state when the call is in progress or active.
+            color: `rgb(255, 0, 0)`,
+            type: "pill", // or "round"
+            title: "Call is in progress...", // only required in case of Pill
+            subtitle: "End the call.", // only required in case of pill
+            icon: `https://unpkg.com/lucide-static@0.321.0/icons/phone-off.svg`,
+          },
+        };
+    
+      
+        (function (d, t) {
+          var g = document.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+          g.src =
+            "https://cdn.jsdelivr.net/gh/VapiAI/html-script-tag@latest/dist/assets/index.js";
+          g.defer = true;
+          g.async = true;
+          s.parentNode.insertBefore(g, s);
+      
+          g.onload = function () {
+            vapiInstance = window.vapiSDK.run({
+              apiKey: apiKey, // mandatory
+              assistant: assistant, // mandatory
+              config: buttonConfig, // optional
+            });
+    
+            vapiInstance.on('speech-start', () => {
+              console.log('Speech has started');
+            });
+    
+            vapiInstance.on('speech-end', () => {
+              console.log('Speech has ended');
+            });
+    
+            vapiInstance.on('call-start', () => {
+              console.log('Call has started');
+            });
+    
+            vapiInstance.on('call-end', () => {
+              console.log('Call has stopped');
+            });
+    
+            vapiInstance.on('volume-level', (volume) => {
+              console.log(`Assistant volume level: ${volume}`);
+            });
+    
+            // Function calls and transcripts will be sent via messages
+            vapiInstance.on('message', (message) => {
+              console.log(message);
+            });
+    
+            vapiInstance.on('error', (e) => {
+              console.error(e)
+            });
+    
+          };
+        })(document, "script");
+      
+      </script>
+</body>
+</html>
